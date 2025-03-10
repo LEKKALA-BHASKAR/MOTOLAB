@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { ShoppingCart, User, Search, ChevronDown, Menu, X } from 'lucide-react';
 import { vehicles } from '@/lib/data';
@@ -16,7 +15,8 @@ const Header = () => {
   const isMobile = useIsMobile();
 
   return (
-    <header className="bg-brand-yellow py-4 px-6 shadow-md">
+    <header className="bg-brand-yellow py-4 px-6 shadow-md sticky top-0 z-50">
+  
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo and 3D wheel */}
@@ -27,15 +27,36 @@ const Header = () => {
             <h1 className="text-brand-black font-bold text-2xl">MOTO LAB </h1>
           </Link>
 
-          {/* Mobile menu toggle */}
-          {isMobile && (
-            <button 
-              className="p-2 text-brand-black" 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          )}
+          {/* Mobile menu toggle and Cart/Admin buttons */}
+          <div className="flex items-center space-x-4">
+            {/* Cart and Admin buttons (always visible on mobile) */}
+            {isMobile && (
+              <>
+                <Link to="/admin" className="text-brand-black hover-scale">
+                  <User size={24} />
+                </Link>
+                <button 
+                  className="relative text-brand-black hover-scale"
+                  onClick={() => setIsCartOpen(true)}
+                >
+                  <ShoppingCart size={24} />
+                  <span className="absolute -top-2 -right-2 bg-brand-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    {getCartCount()}
+                  </span>
+                </button>
+              </>
+            )}
+
+            {/* Mobile menu toggle button */}
+            {isMobile && (
+              <button 
+                className="p-2 text-brand-black" 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            )}
+          </div>
 
           {/* Desktop navigation */}
           {!isMobile && (
@@ -132,27 +153,6 @@ const Header = () => {
                   ))}
                 </div>
               )}
-            </div>
-            
-            <div className="flex justify-between items-center">
-              <div className="flex items-center space-x-4">
-                <Link to="/admin" className="text-brand-black p-2">
-                  <User size={24} />
-                </Link>
-                <button 
-                  className="relative text-brand-black p-2"
-                  onClick={() => setIsCartOpen(true)}
-                >
-                  <ShoppingCart size={24} />
-                  <span className="absolute -top-2 -right-2 bg-brand-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    {getCartCount()}
-                  </span>
-                </button>
-              </div>
-              <div className="text-sm">
-                <p>₹{getCartTotal().toLocaleString()}</p>
-                <p>{getCartCount()} items</p>
-              </div>
             </div>
           </div>
         )}
