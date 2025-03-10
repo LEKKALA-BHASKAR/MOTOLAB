@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { categories, products as allProducts } from '@/lib/data';
-import Header from '@/components/layout/Header';
+
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
 import Sidebar from '@/components/layout/Sidebar';
@@ -39,7 +39,7 @@ const CategoryPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+     
       <Navigation />
       
       <div className="bg-amber-50 py-8">
