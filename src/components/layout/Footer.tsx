@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer
       className="py-12 mt-16 bg-cover bg-center text-red"
-      style={{ backgroundImage: "url('/footer-bg.JPG')" }} // Update with your image path
+      style={{ backgroundImage: "url('/footer-bg.JPG')" }} 
     >
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -54,7 +54,7 @@ const Footer = () => {
               </li>
               
               <li>
-                <a href="#" className="hover:underline">
+                <a href="/PrivacyPolicy" className="hover:underline">
                   Privacy Policy
                 </a>
               </li>

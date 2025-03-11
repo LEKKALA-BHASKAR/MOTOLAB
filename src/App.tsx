@@ -8,7 +8,7 @@ import { CartProvider } from "@/contexts/CartContext";
 import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
 import NotFound from "./pages/NotFound";
-
+import PrivacyPolicy from './pages/PrivacyPolicy';
 // Admin routes
 import Admin from "./pages/admin/Admin";
 import DashboardLayout from "./pages/admin/DashboardLayout";
@@ -25,12 +25,13 @@ const App = () => (
     <TooltipProvider>
       <CartProvider>
         <Toaster />
+        
         <Sonner />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/category/:categoryName" element={<CategoryPage />} />
-            
+            <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
             {/* Admin Routes */}
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin" element={<DashboardLayout />}>
