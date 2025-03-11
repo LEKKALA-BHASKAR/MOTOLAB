@@ -88,10 +88,11 @@ const PrivacyPolicy: React.FC = () => {
             If you have any questions about this Privacy Policy, please contact
             us at{" "}
             <a
-              href="mailto:support@bikeecommerce.com"
+              href="mailto:motolabpitshop@gmail.com"
               className="text-indigo-600 hover:text-indigo-800 transition-colors font-medium"
             >
-              support@bikeecommerce.com
+              motolabpitshop@gmail.com
+              
             </a>
             .
           </p>
