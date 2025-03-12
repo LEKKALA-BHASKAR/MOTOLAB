@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import ProductPage from '@/pages/ProductPage';
 import { 
   ShoppingCart, X, Trash2, Plus, Minus, 
   CreditCard, ShoppingBag 
-} from 'lucide-react';
-import { useCart, CartItem } from '@/contexts/CartContext';
+} from "lucide-react";
+import { useCart, CartItem } from "@/contexts/CartContext";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -11,6 +13,7 @@ interface CartDrawerProps {
 }
 
 export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
+  const navigate = useNavigate();
   const { 
     cartItems, 
     removeFromCart, 
@@ -41,6 +44,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
       >
         <div className="w-screen max-w-md transform transition-all ease-in-out duration-300 translate-x-0">
           <div className="flex h-full flex-col bg-gradient-to-b from-white to-gray-50 shadow-2xl rounded-l-lg">
+            
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-5 bg-gradient-to-r from-yellow-400 to-yellow-500">
               <h2 className="text-2xl font-bold text-gray-900 flex items-center tracking-tight">
@@ -64,8 +68,11 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                 <div className="flex flex-col items-center justify-center h-64 animate-fade-in">
                   <ShoppingBag size={80} className="text-gray-300 mb-6 animate-bounce" />
                   <p className="text-xl font-medium text-gray-600">Your cart is empty</p>
-                  <button 
-                    onClick={onClose}
+                  <button
+                    onClick={() => {
+                      onClose(); // Close modal
+                      navigate("/ProductPage"); // Navigate to Products Page
+                    }}
                     className="mt-6 px-6 py-3 bg-yellow-500 text-gray-900 font-semibold rounded-full hover:bg-yellow-600 transition-all shadow-md"
                   >
                     Shop Now
@@ -99,7 +106,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                   disabled={isCheckingOut}
                   onClick={handleCheckout}
                   className={`w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-full shadow-lg hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 ${
-                    isCheckingOut ? 'opacity-60 cursor-not-allowed' : ''
+                    isCheckingOut ? "opacity-60 cursor-not-allowed" : ""
                   }`}
                 >
                   {isCheckingOut ? (
@@ -176,7 +183,6 @@ const CartItemRow = ({ item, onRemove, onUpdateQuantity }: CartItemRowProps) => 
           </div>
 
           <button
-            type="button"
             className="flex items-center text-red-600 hover:text-red-700 font-medium transition-colors"
             onClick={onRemove}
           >

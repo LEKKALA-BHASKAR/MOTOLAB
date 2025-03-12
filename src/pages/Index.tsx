@@ -3,7 +3,7 @@ import { products } from '@/lib/data';
 import Header from '@/components/layout/Header';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
-import Sidebar from '@/components/layout/Sidebar';
+
 import HeroSection from '@/components/home/HeroSection';
 import ProductGrid from '@/components/home/ProductGrid';
 import NewArrivals from '@/components/home/NewArrivals';

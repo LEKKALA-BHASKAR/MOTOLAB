@@ -24,7 +24,7 @@ const HeroSection = () => {
             Premium quality motorcycle accessories for all your riding needs
           </p>
           <Link 
-            to="/" 
+            to="/ProductPage" 
             className="inline-flex items-center bg-brand-black text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
           >
             <ShoppingBag className="mr-2" size={20} />

@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import ProductPage from './pages/ProductPage';
 // Admin routes
 import Admin from "./pages/admin/Admin";
 import DashboardLayout from "./pages/admin/DashboardLayout";
@@ -32,6 +33,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/category/:categoryName" element={<CategoryPage />} />
             <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
+            <Route path='/ProductPage' element={<ProductPage/>} />
+            
             {/* Admin Routes */}
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin" element={<DashboardLayout />}>
