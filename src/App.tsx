@@ -18,6 +18,7 @@ import Products from "./pages/admin/Products";
 import Categories from "./pages/admin/Categories";
 import Users from "./pages/admin/Users";
 import Orders from "./pages/admin/Orders";
+import LoginPage from "./pages/LoginPage"
 
 const queryClient = new QueryClient();
 
@@ -26,15 +27,16 @@ const App = () => (
     <TooltipProvider>
       <CartProvider>
         <Toaster />
-        
+
         <Sonner />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/category/:categoryName" element={<CategoryPage />} />
             <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
-            <Route path='/ProductPage' element={<ProductPage/>} />
-            
+            <Route path='/ProductPage' element={<ProductPage />} />
+
             {/* Admin Routes */}
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin" element={<DashboardLayout />}>
@@ -43,9 +45,9 @@ const App = () => (
               <Route path="categories" element={<Categories />} />
               <Route path="users" element={<Users />} />
               <Route path="orders" element={<Orders />} />
-              
+
             </Route>
-            
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
