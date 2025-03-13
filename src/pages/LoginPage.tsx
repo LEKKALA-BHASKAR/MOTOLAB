@@ -2,7 +2,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
     const handleGoogleLogin = () => {
-        window.open("http://localhost:8000/auth/google/callback", "_self")
+        window.open(`${import.meta.env.VITE_BACKEND_URL}/auth/google/callback`, "_self")
     };
 
     return (

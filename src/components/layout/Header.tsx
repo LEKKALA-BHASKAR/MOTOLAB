@@ -21,7 +21,7 @@ const Header = () => {
 
   const getUser = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/login/success",
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/login/success`,
         { withCredentials: true }
       )
       setUserData(res.data.user)
@@ -31,7 +31,7 @@ const Header = () => {
   }
 
   const logout = () => {
-    window.open("http://localhost:8000/logout", "_self")
+    window.open(`${import.meta.env.VITE_BACKEND_URL}/logout`, "_self")
   }
 
   const isMobile = useIsMobile();
