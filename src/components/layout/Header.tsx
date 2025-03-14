@@ -19,7 +19,7 @@ const Header = () => {
 
   const [userData, setUserData] = useState({})
 
-  const getUser = async () => {
+  const getUser = async () => { 
     try {
       const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/login/success`,
         { withCredentials: true }
@@ -127,7 +127,7 @@ const Header = () => {
               <div className="flex items-center space-x-4">
                 {
                   Object.keys(userData)?.length > 0 ? (<>
-                    <li className="list-none" onClick={logout} ><LogOut /></li>
+                    <div className="list-none" onClick={logout} ><LogOut /></div>
                   </>) : (<><Link to="/login" className="text-brand-black hover-scale">
                     <User size={24} />
                   </Link></>)
